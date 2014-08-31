@@ -1,0 +1,34 @@
+{
+  "name": "lil-type",
+  "description": "Complete type checking helpers",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "lil-js/type",
+  "author": "Tomas Aparicio",
+  "main": "./type.js",
+  "keywords": [
+    "lil",
+    "tiny",
+    "micro",
+    "type",
+    "checking",
+    "lodash",
+    "underscore",
+    "isType",
+    "typing"
+  ],
+  "ignore": [
+    "**/.*",
+    ".*",
+    "*.md",
+    "*.sh",
+    "test",
+    "Makefile",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    ".npmignore",
+    "package.json",
+    "component.json"
+  ]
+}
