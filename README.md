@@ -1,6 +1,6 @@
 # [lil](http://lil-js.github.io)'-type [![Build Status](https://api.travis-ci.org/lil-js/type.svg?branch=master)][travis]
 
-Complete type checking helpers
+Full featured, reliable, type checking module
 
 <table>
 <tr>
