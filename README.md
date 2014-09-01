@@ -25,7 +25,7 @@ Full featured, reliable, type checking module
 
 #### Node.js
 ```bash
-npm install lil-uri
+npm install lil-type
 ```
 
 #### Browser
