@@ -13,7 +13,7 @@ Full featured, reliable, type checking module
 <td><b>Size</b></td><td>2 KB / 1 KB (gzipped)</td>
 </tr>
 <tr>
-<td><b>Environment</b></td><td>Browser, Node</td>
+<td><b>Environment</b></td><td>Node, Browser</td>
 </tr>
 </table>
 
