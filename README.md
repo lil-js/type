@@ -12,6 +12,9 @@ Full featured, reliable, type checking module
 <tr>
 <td><b>Size</b></td><td>2 KB / 1 KB (gzipped)</td>
 </tr>
+<tr>
+<td><b>Environment</b></td><td>Browser, Node</td>
+</tr>
 </table>
 
 ## Features
@@ -20,6 +23,12 @@ Full featured, reliable, type checking module
 
 ## Installation
 
+#### Node.js
+```bash
+npm install lil-uri
+```
+
+#### Browser
 Via [Bower](http://bower.io)
 ```bash
 bower install lil-type
@@ -28,7 +37,6 @@ Via [Component](http://component.io/)
 ```bash
 component install lil-js/type
 ```
-
 Or loading the script remotely
 ```html
 <script src="//cdn.rawgit.com/lil-js/type/0.1.0/type.js"></script>
@@ -36,8 +44,7 @@ Or loading the script remotely
 
 ### Environments
 
-Cross-browser support guaranteed running tests in [BrowserStack](http://browserstack.com/)
-
+- Node.js
 - Chrome >= 5
 - Firefox >= 3
 - Safari >= 5
