@@ -12,7 +12,7 @@ Reliable, full featured, type checking helpers
 <td><b>Version</b></td><td>0.1.0</td>
 </tr>
 <tr>
-<td><b>Size</b></td><td>2 KB / 1 KB (gzipped)</td>
+<td><b>Size</b></td><td>2 KB / >1 KB (gzipped)</td>
 </tr>
 <tr>
 <td><b>Environment</b></td><td>Node, Browser</td>
@@ -51,9 +51,28 @@ Or loading the script remotely
 
 ### Usage
 
+
+You could fetch de module via `require()` if it's available.
+Otherwise, global fallback will be used, exposed via `lil.type`
 ```js
+var type = require('lil-type')
+```
+
+##### Type checking
+```js
+
 lil.is('name') // -> 'string'
 lil.isArray([1,2,3]) // -> true
+```
+
+##### Get type
+```js
+lil.is('name') // -> 'string'
+lil.is({}) // -> 'object'
+lil.is([1]) // -> 'array'
+lil.is(/[a-z]/) // -> 'regexp'
+lil.is(function () {}) // -> 'function'
+lil.is(void 0) // -> 'undefined'
 ```
 
 ## API

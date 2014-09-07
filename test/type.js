@@ -370,6 +370,7 @@ describe('type', function () {
       expect(lil.isType(1.2)).to.be.equal('number')
       expect(lil.isType(null)).to.be.equal('null')
       expect(lil.isType(undefined)).to.be.equal('undefined')
+      expect(lil.isType(void 0)).to.be.equal('undefined')
       expect(lil.isType(/[a-z]/)).to.be.equal('regexp')
       expect(lil.isType(function () {})).to.be.equal('function')
       expect(lil.isType(new Date)).to.be.equal('date')
