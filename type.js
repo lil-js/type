@@ -13,23 +13,135 @@
 }(this, function (exports) {
   var VERSION = '0.1.0'
   var toStr = Object.prototype.toString
-  var slice = Array.prototype.slice
+  var nativeIsFinite = isFinite
+  var nativeIsArray = Array.isArray
+  var keys = Object.keys
+  var types = [
+    'Boolean', 'NaN', 'Number', 'String', 'Null',
+    'Undefined', 'RegExp', 'Date', 'Function', 'Symbol',
+    'Arguments', 'Error', 'Array', 'Object'
+  ]
 
   exports.type = { VERSION: VERSION }
 
-  exports.isObject = function isObject(o) {
-    return o && toStr.call(o) === '[object Object]'
+  function isNull(o) {
+    return o === null
+  }
+  exports.isNull = isNull
+
+  function isObject(o) {
+    return o && toStr.call(o) === '[object Object]' || false
+  }
+  exports.isObject = isObject
+
+  exports.isPlainObject = function isPlainObject(o) {
+    return isObject(o)
+      && isObject(Object.getPrototypeOf(o))
+      && isNull(Object.getPrototypeOf(Object.getPrototypeOf(o)))
   }
 
-  exports.isArray = function isArray(o) {
-    return o && toStr.call(o) === '[object Array]'
+  function isArray(o) {
+    return nativeIsArray ? nativeIsArray(o) : (o && toStr.call(o) === '[object Array]') || false
   }
+  exports.isArray = isArray
 
-  exports.isFn = function isFn(fn) {
+  function isFn(fn) {
     return typeof fn === 'function'
   }
+  exports.isFn = exports.isFunction = isFn
 
-  exports.isDate = function isDate(o) {
-    return o && toStr.call(o) === '[object Date]'
+  function isBool(o) {
+    return o === true || o === false || o && toStr.call(o) === '[object Boolean]' || false
+  }
+  exports.isBool = exports.isBoolean = isBool
+
+  function isDate(o) {
+    return o && toStr.call(o) === '[object Date]' || false
+  }
+  exports.isDate = isDate
+
+  exports.isElement = function isElement(o) {
+    return o && o.nodeType === 1 || false
+  }
+
+  function isString(o) {
+    return typeof o === 'string' ||
+      o && typeof o === 'object' && toStr.call(o) === '[object String]' || false
+  }
+  exports.isString = isString
+
+  function isNumber(o) {
+    return typeof o === 'number' ||
+      o && typeof o === 'object' && toStr.call(o) === '[object Number]' || false
+  }
+  exports.isNumber = isNumber
+
+  function isRegExp(o) {
+    return o && toStr.call(o) === '[object RegExp]' || false
+  }
+  exports.isRegExp = isRegExp
+
+  function isNaN(o) {
+    return isNumber(o) && o != +o
+  }
+  exports.isNaN = isNaN
+
+  exports.isFinite = function isFinite(o) {
+    return nativeIsFinite(o) && !isNaN(parseFloat(o)) || false
+  }
+
+  function isError(o) {
+    return o && toStr.call(o).indexOf('Error') !== -1 || false
+  }
+  exports.isError = isError
+
+  function isUndefined(o) {
+    return typeof o === 'undefined'
+  }
+  exports.isUndefined = isUndefined
+
+  function isSymbol(o) {
+    return o && toStr.call(o) === '[object Symbol]' || false
+  }
+  exports.isSymbol = isSymbol
+
+  function isArguments(o) {
+    return o && toStr.call(o) === '[object Arguments]' || false
+  }
+  exports.isArguments = isArguments
+
+  function isEmpty(o) {
+    if (!o) return true
+    if (isString(o) || isArray(o)) return o.length === 0
+    if (isObject(o)) return keys(o).length === 0
+    return false
+  }
+  exports.isEmpty = isEmpty
+
+  exports.notEmpty = function (o) {
+    return !isEmpty(o)
+  }
+
+  exports.isMutable = function isMutable(o) {
+    return isObject(o) || isArray(o) || isError(o) || isArguments(o) || isDate(o) || isFn(o) || false
+  }
+
+  exports.isIterable = exports.iterable = function isIterable(o) {
+    return isObject(o) || isArray(o) || isArguments(o) || false
+  }
+
+  exports.isPrimitive = function (o) {
+    return isBool(o) || isString(o) || isNumber(o)
+      || isFn(o) || isNull(o) || isUndefined(o)
+      || isRegExp(o) || isSymbol(o) || false
+  }
+
+  exports.is = exports.isType = function isType(o) {
+    for (var i = 0, l = types.length; i < l; i += 1) {
+      if (exports['is' + types[i]](o)) {
+        return types[i].toLowerCase()
+      }
+    }
+    return 'undefined'
   }
 }))

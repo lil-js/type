@@ -1,6 +1,8 @@
 # [lil](http://lil-js.github.io)'-type [![Build Status](https://api.travis-ci.org/lil-js/type.svg?branch=master)][travis]
 
-Full featured, reliable, type checking module
+<img align="center" height="150" src="http://lil-js.github.io/img/liljs-logo.png" />
+
+Reliable, full featured, type checking helpers
 
 <table>
 <tr>
@@ -17,10 +19,6 @@ Full featured, reliable, type checking module
 </tr>
 </table>
 
-## Features
-
-- Full type checking support
-
 ## Installation
 
 #### Node.js
@@ -33,7 +31,7 @@ Via [Bower](http://bower.io)
 ```bash
 bower install lil-type
 ```
-Via [Component](http://component.io/)
+Via [Component](https://github.com/componentjs/component)
 ```bash
 component install lil-js/type
 ```
@@ -61,7 +59,6 @@ lil.isArray([1,2,3]) // -> true
 ## API
 
 #### type.VERSION
-
 
 ## Contributing
 

@@ -3,7 +3,6 @@ MOCHA = ./node_modules/.bin/mocha
 UGLIFYJS = ./node_modules/.bin/uglifyjs
 BANNER = "/*! lil-type - v0.1 - MIT License - https://github.com/lil-js/type */"
 MOCHA_PHANTOM = ./node_modules/.bin/mocha-phantomjs
-MOCHA = ./node_modules/.bin/mocha
 
 define release
 	VERSION=`node -pe "require('./package.json').version"` && \
@@ -28,10 +27,11 @@ browser: uglify
 test: browser mocha
 
 uglify:
-	$(UGLIFYJS) type.js --mangle --preamble $(BANNER) > type.min.js
+	$(UGLIFYJS) type.js --mangle --preamble $(BANNER) --source-map type.min.js.map > type.min.js
 
 mocha:
 	$(MOCHA_PHANTOM) --reporter spec --ui bdd test/runner.html
+	$(MOCHA) --reporter spec --ui bdd
 
 loc:
 	wc -l type.js
