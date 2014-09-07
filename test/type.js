@@ -405,7 +405,6 @@ describe('type', function () {
   describe('isBinary', function () {
     it('should be valid', function () {
       expect(lil.isBinary(new Int8Array)).to.be.true
-      expect(lil.isBinary(new Float64Array)).to.be.true
       expect(lil.isBinary(new Float32Array)).to.be.true
       expect(lil.isBinary(new Uint16Array)).to.be.true
     })
