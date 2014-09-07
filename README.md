@@ -149,7 +149,7 @@ Alias: `isFunction`
 #### lil.is(o)
 Alias: `isType`
 
-#### type.VERSION
+#### lil.type.VERSION
 
 ## Contributing
 
