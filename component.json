@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": [
     "type.js",
-    "type.min.js"
+    "type.min.js",
+    "type.min.js.map"
   ],
   "keywords": [
     "lil",
