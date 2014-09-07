@@ -2,7 +2,7 @@
 
 <img align="center" height="150" src="http://lil-js.github.io/img/liljs-logo.png" />
 
-Reliable, full featured, type checking helpers
+Reliable, full featured, type checking helpers (based on [hu](https://github.com/h2non/hu))
 
 <table>
 <tr>
@@ -51,21 +51,32 @@ Or loading the script remotely
 
 ### Usage
 
-
 You could fetch de module via `require()` if it's available.
 Otherwise, global fallback will be used, exposed via `lil.type`
 ```js
-var type = require('lil-type')
+var lil = require('lil-type')
 ```
 
 ##### Type checking
 ```js
-
-lil.is('name') // -> 'string'
+lil.isObject({}) // -> true
 lil.isArray([1,2,3]) // -> true
+lil.isNumber(1.2) // -> true
+lil.isBool(1.2) // -> true
+lil.isRegExp(/[a-z]/) // -> true
 ```
 
-##### Get type
+##### Content checking
+```js
+lil.isEmpty(void 0) // -> true
+lil.isEmpty('') // -> true
+lil.isEmpty([]) // -> true
+lil.isEmpty({}) // -> true
+lil.isEmpty(1.5) // -> false
+lil.isEmpty(new Date) // -> false
+```
+
+##### Getting data type
 ```js
 lil.is('name') // -> 'string'
 lil.is({}) // -> 'object'
@@ -75,7 +86,68 @@ lil.is(function () {}) // -> 'function'
 lil.is(void 0) // -> 'undefined'
 ```
 
+##### Type handle helpers
+```js
+lil.isIterable([1,2,3]) // -> true
+lil.isIterable({ name: 'Chuck' }) // -> true
+lil.isIterable(function () {}) // -> false
+lil.isIterable(true) // -> false
+lil.isMutable({}) // -> true
+lil.isMutable([]) // -> true
+lil.isMutable('') // -> false
+lil.isMutable(/[a-z]/) // -> false
+```
+
 ## API
+
+#### lil.isBool(o)
+Alias: `isBoolean`
+
+#### lil.isNumber(o)
+
+#### lil.isNaN(o)
+
+#### lil.isFinite(o)
+
+#### lil.isString(o)
+
+#### lil.isDate(o)
+
+#### lil.isRegExp(o)
+
+#### lil.isError(o)
+
+#### lil.isFn(o)
+Alias: `isFunction`
+
+#### lil.isArguments(o)
+
+#### lil.isSymbol(o)
+
+#### lil.isArray(o)
+
+#### lil.isObject(o)
+
+#### lil.isPlainObject(o)
+
+#### lil.isElement(o)
+
+#### lil.isNull(o)
+
+#### lil.isUndefined(o)
+
+#### lil.isEmpty(o)
+
+#### lil.notEmpty(o)
+
+#### lil.isIterable(o)
+
+#### lil.isPrimitive(o)
+
+#### lil.isMutable(o)
+
+#### lil.is(o)
+Alias: `isType`
 
 #### type.VERSION
 

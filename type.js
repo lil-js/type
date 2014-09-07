@@ -19,7 +19,7 @@
   var types = [
     'Boolean', 'NaN', 'Number', 'String', 'Null',
     'Undefined', 'RegExp', 'Date', 'Function', 'Symbol',
-    'Arguments', 'Error', 'Array', 'Object'
+    'Arguments', 'Error', 'Array', 'Element', 'Object'
   ]
 
   exports.type = { VERSION: VERSION }
@@ -126,7 +126,7 @@
     return isObject(o) || isArray(o) || isError(o) || isArguments(o) || isDate(o) || isFn(o) || false
   }
 
-  exports.isIterable = exports.iterable = function isIterable(o) {
+  exports.isIterable = function isIterable(o) {
     return isObject(o) || isArray(o) || isArguments(o) || false
   }
 
