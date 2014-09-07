@@ -19,6 +19,15 @@ Reliable, full featured, type checking helpers (based on [hu](https://github.com
 </tr>
 </table>
 
+## Features
+
+- Full type-checking support
+- Support upcoming ES6 data types (generators, promises, maps...)
+- Support for binary data types (Blob, File, FileReader...)
+- Support for buffer data types (ArrayBuffer, DataView...)
+- Support for typed arrays (Int8Array, Float32Array...)
+- Smart type inference
+
 ## Installation
 
 #### Node.js
@@ -135,6 +144,20 @@ Alias: `isFunction`
 #### lil.isNull(o)
 
 #### lil.isUndefined(o)
+
+#### lil.isPromise(o)
+
+#### lil.isGenerator(o)
+
+#### lil.isMap(o)
+
+#### lil.isBinary(o)
+
+#### lil.isBlob(o)
+
+#### lil.isFile(o)
+
+#### lil.isBuffer(o)
 
 #### lil.isEmpty(o)
 

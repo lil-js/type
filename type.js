@@ -16,10 +16,12 @@
   var nativeIsFinite = isFinite
   var nativeIsArray = Array.isArray
   var keys = Object.keys
+  var binaryRegex = /[U]?Int|Float[0-9]{1,2}Array\]$/i
   var types = [
     'Boolean', 'NaN', 'Number', 'String', 'Null',
     'Undefined', 'RegExp', 'Date', 'Function', 'Symbol',
-    'Arguments', 'Error', 'Array', 'Element', 'Object'
+    'Arguments', 'Error', 'Array', 'Element',
+    'Generator', 'Map', 'Binary', 'Object'
   ]
 
   exports.type = { VERSION: VERSION }
@@ -94,6 +96,38 @@
     return o && toStr.call(o).indexOf('Error') !== -1 || false
   }
   exports.isError = isError
+
+  exports.isMap = function isMap(o) {
+    return o && toStr.call(o) === '[object Map]' || false
+  }
+
+  exports.isPromise = function isPromise(o) {
+    return isObject(o) && isFn(o.then) || false
+  }
+
+  exports.isGenerator = function isGenerator(o) {
+    return isObject(o) && isFn(o.next) && isFn(o.send) || false
+  }
+
+  exports.isBuffer = function isBuffer(o) {
+    return o && toStr.call(o) === '[object Buffer]'
+      || toStr.call(o) === '[object ArrayBuffer]'
+      || toStr.call(o) === '[object DataView]' || false
+  }
+
+  function isBlob(o) {
+    return o && toStr.call(o) === '[object Blob]' || toStr.call(o) === '[object BlobBuilder]' || false
+  }
+  exports.isBlob = isBlob
+
+  function isFile(o) {
+    return o && toStr.call(o) === '[object File]' || toStr.call(o) === '[object FileReader]' || false
+  }
+  exports.isBlob = isFile
+
+  exports.isBinary = function isBinary(o) {
+    return o && isBlob(o) || isFile(o) || binaryRegex.test(toStr.call(o)) || false
+  }
 
   function isUndefined(o) {
     return typeof o === 'undefined'

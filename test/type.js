@@ -247,7 +247,7 @@ describe('type', function () {
   describe('isSymbol', function () {
     it('should be valid', function () {
       if (typeof Symbol === 'function')
-        expect(lil.isSymbol(new Symbol)).to.be.true
+        expect(lil.isSymbol(Symbol('a'))).to.be.true
     })
 
     it('should not be valid', function () {
@@ -359,6 +359,66 @@ describe('type', function () {
       expect(lil.isPrimitive(new Date)).to.be.false
       expect(lil.isPrimitive(new Object())).to.be.false
       expect(lil.isPrimitive(new Array)).to.be.false
+    })
+  })
+
+  describe('isPromise', function () {
+    function FakePromise() {}
+    FakePromise.prototype.then = function () {}
+
+    it('should be valid', function () {
+      expect(lil.isPromise(new FakePromise)).to.be.true
+    })
+
+    it('should not be valid', function () {
+      expect(lil.isPromise(true)).to.be.false
+      expect(lil.isPromise('12')).to.be.false
+      expect(lil.isPromise(null)).to.be.false
+      expect(lil.isPromise(void 0)).to.be.false
+      expect(lil.isPromise(new Boolean())).to.be.false
+      expect(lil.isPromise(new Number())).to.be.false
+      expect(lil.isPromise(new String)).to.be.false
+      expect(lil.isPromise(new RegExp)).to.be.false
+    })
+  })
+
+  describe('isGenerator', function () {
+    function FakeGenerator() {}
+    FakeGenerator.prototype.send = FakeGenerator.prototype.next = function () {}
+
+    it('should be valid', function () {
+      expect(lil.isGenerator(new FakeGenerator)).to.be.true
+    })
+
+    it('should not be valid', function () {
+      expect(lil.isGenerator(true)).to.be.false
+      expect(lil.isGenerator('12')).to.be.false
+      expect(lil.isGenerator(null)).to.be.false
+      expect(lil.isGenerator(void 0)).to.be.false
+      expect(lil.isGenerator(new Boolean())).to.be.false
+      expect(lil.isGenerator(new Number())).to.be.false
+      expect(lil.isGenerator(new String)).to.be.false
+      expect(lil.isGenerator(new RegExp)).to.be.false
+    })
+  })
+
+  describe('isBinary', function () {
+    it('should be valid', function () {
+      expect(lil.isBinary(new Int8Array)).to.be.true
+      expect(lil.isBinary(new Float64Array)).to.be.true
+      expect(lil.isBinary(new Float32Array)).to.be.true
+      expect(lil.isBinary(new Uint16Array)).to.be.true
+    })
+
+    it('should not be valid', function () {
+      expect(lil.isBinary(true)).to.be.false
+      expect(lil.isBinary('12')).to.be.false
+      expect(lil.isBinary(null)).to.be.false
+      expect(lil.isBinary(void 0)).to.be.false
+      expect(lil.isBinary(new Boolean())).to.be.false
+      expect(lil.isBinary(new Number())).to.be.false
+      expect(lil.isBinary(new String)).to.be.false
+      expect(lil.isBinary(new RegExp)).to.be.false
     })
   })
 
