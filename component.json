@@ -1,6 +1,6 @@
 {
   "name": "lil-type",
-  "description": "Reliable, full featured, type checking helpers",
+  "description": "Modern, reliable, full featured, type checking helpers",
   "version": "0.1.0",
   "license": "MIT",
   "repository": "lil-js/type",

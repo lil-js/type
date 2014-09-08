@@ -2,7 +2,7 @@
 
 <img align="center" height="150" src="http://lil-js.github.io/img/liljs-logo.png" />
 
-Reliable, full featured, type checking helpers (based on [hu](https://github.com/h2non/hu))
+Modern, reliable, full featured, type checking helpers (based on [hu](https://github.com/h2non/hu))
 
 <table>
 <tr>

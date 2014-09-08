@@ -1,6 +1,6 @@
 {
   "name": "lil-type",
-  "description": "Reliable, full featured, type checking helpers",
+  "description": "Modern, reliable, full featured, type checking helpers",
   "version": "0.1.0",
   "license": "MIT",
   "repository": "lil-js/type",
@@ -16,7 +16,10 @@
     "underscore",
     "isType",
     "typing",
-    "coercion"
+    "coercion",
+    "es6",
+    "generators",
+    "promises"
   ],
   "scripts": {
     "test": "make test"
