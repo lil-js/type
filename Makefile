@@ -36,6 +36,9 @@ mocha:
 loc:
 	wc -l type.js
 
+gzip:
+	gzip -c type.js | wc -c
+
 release:
 	@$(call release, patch)
 
