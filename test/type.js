@@ -421,6 +421,26 @@ describe('type', function () {
     })
   })
 
+  describe('isTypedArray', function () {
+    it('should be valid', function () {
+      expect(lil.isBinary(new Int8Array)).to.be.true
+      expect(lil.isBinary(new Float32Array)).to.be.true
+      expect(lil.isBinary(new Uint16Array)).to.be.true
+    })
+
+    it('should not be valid', function () {
+      expect(lil.isBinary(new Array)).to.be.false
+      expect(lil.isBinary(true)).to.be.false
+      expect(lil.isBinary('12')).to.be.false
+      expect(lil.isBinary(null)).to.be.false
+      expect(lil.isBinary(void 0)).to.be.false
+      expect(lil.isBinary(new Boolean())).to.be.false
+      expect(lil.isBinary(new Number())).to.be.false
+      expect(lil.isBinary(new String)).to.be.false
+      expect(lil.isBinary(new RegExp)).to.be.false
+    })
+  })
+
   describe('isType', function () {
     it('should be get the valid types', function () {
       expect(lil.isType(true)).to.be.equal('boolean')
