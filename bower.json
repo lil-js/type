@@ -1,7 +1,7 @@
 {
   "name": "lil-type",
   "description": "Modern, reliable, full featured, type checking helpers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": "lil-js/type",
   "author": "Tomas Aparicio",

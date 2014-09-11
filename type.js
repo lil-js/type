@@ -11,7 +11,7 @@
     factory((root.lil = root.lil || {}))
   }
 }(this, function (exports) {
-  var VERSION = '0.1.0'
+  var VERSION = '0.1.1'
   var toStr = Object.prototype.toString
   var nativeIsFinite = isFinite
   var nativeIsArray = Array.isArray
@@ -46,6 +46,11 @@
     return nativeIsArray ? nativeIsArray(o) : (o && toStr.call(o) === '[object Array]') || false
   }
   exports.isArray = isArray
+
+  function isTypedArray(o) {
+    return o && binaryRegex.test(toStr.call(o)) || false
+  }
+  exports.isTypedArray = isTypedArray
 
   function isFn(fn) {
     return typeof fn === 'function'
@@ -126,7 +131,7 @@
   exports.isBlob = isFile
 
   exports.isBinary = function isBinary(o) {
-    return o && isBlob(o) || isFile(o) || binaryRegex.test(toStr.call(o)) || false
+    return o && isBlob(o) || isFile(o) || isTypedArray(o) || false
   }
 
   function isUndefined(o) {

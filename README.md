@@ -9,7 +9,7 @@ Modern, reliable, full featured, type checking helpers (based on [hu](https://gi
 <td><b>Name</b></td><td>type</td>
 </tr>
 <tr>
-<td><b>Version</b></td><td>0.1.0</td>
+<td><b>Version</b></td><td>0.1.1</td>
 </tr>
 <tr>
 <td><b>Size</b></td><td>2 KB / >1 KB (gzipped)</td>
@@ -46,7 +46,7 @@ component install lil-js/type
 ```
 Or loading the script remotely
 ```html
-<script src="//cdn.rawgit.com/lil-js/type/0.1.0/type.js"></script>
+<script src="//cdn.rawgit.com/lil-js/type/0.1.1/type.js"></script>
 ```
 
 ### Environments
@@ -134,6 +134,8 @@ Alias: `isFunction`
 #### lil.isSymbol(o)
 
 #### lil.isArray(o)
+
+#### lil.isTypedArray(o)
 
 #### lil.isObject(o)
 
