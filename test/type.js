@@ -2,7 +2,7 @@ var lil = require('../type')
 var expect = require('chai').expect
 
 describe('type', function () {
-  it('should expose the http constructor', function () {
+  it('should expose the type object', function () {
     expect(lil.type).to.be.an('object')
   })
 
