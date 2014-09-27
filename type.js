@@ -11,6 +11,7 @@
     factory((root.lil = root.lil || {}))
   }
 }(this, function (exports) {
+  'use strict'
   var VERSION = '0.1.1'
   var toStr = Object.prototype.toString
   var nativeIsFinite = isFinite
