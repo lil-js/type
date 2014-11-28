@@ -18,6 +18,7 @@
   var nativeIsArray = Array.isArray
   var keys = Object.keys
   var binaryRegex = /[U]?Int|Float[0-9]{1,2}Array\]$/i
+  
   var types = [
     'Boolean', 'NaN', 'Number', 'String', 'Null',
     'Undefined', 'RegExp', 'Date', 'Function', 'Symbol',
