@@ -9,7 +9,7 @@ Modern, reliable, full featured, type checking helpers (based on [hu](https://gi
 <td><b>Name</b></td><td>type</td>
 </tr>
 <tr>
-<td><b>Version</b></td><td>0.1.1</td>
+<td><b>Version</b></td><td>0.1.2</td>
 </tr>
 <tr>
 <td><b>Size</b></td><td>2 KB / >1 KB (gzipped)</td>
@@ -22,7 +22,7 @@ Modern, reliable, full featured, type checking helpers (based on [hu](https://gi
 ## Features
 
 - Full type-checking support
-- Support upcoming ES6 data types (generators, promises, maps...)
+- Support upcoming ES6 data types (Generators, Promise, Map, WeakMap...)
 - Support for binary data types (Blob, File, FileReader...)
 - Support for buffer data types (ArrayBuffer, DataView...)
 - Support for typed arrays (Int8Array, Float32Array...)
@@ -46,7 +46,7 @@ component install lil-js/type
 ```
 Or loading the script remotely
 ```html
-<script src="//cdn.rawgit.com/lil-js/type/0.1.1/type.js"></script>
+<script src="//cdn.rawgit.com/lil-js/type/0.1.2/type.js"></script>
 ```
 
 ### Environments

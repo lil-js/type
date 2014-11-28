@@ -1,7 +1,8 @@
+VERSION = 0.1.2
 BROWSERIFY = node ./node_modules/browserify/bin/cmd.js
 MOCHA = ./node_modules/.bin/mocha
 UGLIFYJS = ./node_modules/.bin/uglifyjs
-BANNER = "/*! lil-type - v0.1 - MIT License - https://github.com/lil-js/type */"
+BANNER = "/*! lil-type - v$(VERSION) - MIT License - https://github.com/lil-js/type */"
 MOCHA_PHANTOM = ./node_modules/.bin/mocha-phantomjs
 
 define release
