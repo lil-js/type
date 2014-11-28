@@ -52,10 +52,10 @@ Or loading the script remotely
 ### Environments
 
 - Node.js
-- Chrome >= 5
-- Firefox >= 3
-- Safari >= 5
-- Opera >= 10
+- Chrome >= 6
+- Firefox >= 4
+- Safari >= 5.1
+- Opera >= 12
 - IE >= 9
 
 ### Usage

@@ -174,7 +174,8 @@
   }
 
   exports.isMutable = function isMutable(o) {
-    return isObject(o) || isArray(o) || isError(o) || isArguments(o) || isDate(o) || isFn(o) || false
+    return (isObject(o) && !Object.isFrozen(o)) 
+      || isArray(o) || isError(o) || isArguments(o) || isDate(o) || isFn(o) || false
   }
 
   exports.isIterable = function isIterable(o) {
