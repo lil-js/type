@@ -153,6 +153,10 @@ Alias: `isFunction`
 
 #### lil.isMap(o)
 
+#### lil.isWeakMap(o)
+
+#### lil.isWeakSet(o)
+
 #### lil.isBinary(o)
 
 #### lil.isBlob(o)
