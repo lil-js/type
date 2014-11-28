@@ -22,7 +22,8 @@
     'Boolean', 'NaN', 'Number', 'String', 'Null',
     'Undefined', 'RegExp', 'Date', 'Function', 'Symbol',
     'Arguments', 'Error', 'Array', 'Element',
-    'Generator', 'Map', 'Binary', 'Object'
+    'Generator', 'Map', 'WeakMap', 'WeakSet', 
+    'Binary', 'Object'
   ]
 
   exports.type = { VERSION: VERSION }
@@ -105,6 +106,15 @@
 
   exports.isMap = function isMap(o) {
     return o && toStr.call(o) === '[object Map]' || false
+  }
+
+  exports.isWeakMap = isMapType('WeakMap')
+  exports.isWeakSet = isMapType('WeakSet')
+
+  function isMapType(type) {
+    return function isMapType(o) {
+      return o && toStr.call(o) === '[object ' + type + ']' || false
+    }
   }
 
   exports.isPromise = function isPromise(o) {
