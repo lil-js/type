@@ -1,4 +1,4 @@
-/*! lil-type - v0.1 - MIT License - https://github.com/lil-js/type */
+/*! lil-type - v0.1.2 - MIT License - https://github.com/lil-js/type */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['exports'], factory)
@@ -12,7 +12,7 @@
   }
 }(this, function (exports) {
   'use strict'
-  var VERSION = '0.1.1'
+  var VERSION = '0.1.2'
   var toStr = Object.prototype.toString
   var nativeIsFinite = isFinite
   var nativeIsArray = Array.isArray
@@ -105,12 +105,12 @@
   }
   exports.isError = isError
 
-  exports.isMap = function isMap(o) {
+  var isMap = exports.isMap = function isMap(o) {
     return o && toStr.call(o) === '[object Map]' || false
   }
 
-  exports.isWeakMap = isMapType('WeakMap')
-  exports.isWeakSet = isMapType('WeakSet')
+  var isWeakMap = exports.isWeakMap = isMapType('WeakMap')
+  var isWeakSet = exports.isWeakSet = isMapType('WeakSet')
 
   function isMapType(type) {
     return function isMapType(o) {
@@ -178,7 +178,7 @@
   }
 
   exports.isIterable = function isIterable(o) {
-    return isObject(o) || isArray(o) || isArguments(o) || false
+    return isObject(o) || isArray(o) || isArguments(o) || isMap(o) || isWeakMap(o) || isWeakSet(o) || false
   }
 
   exports.isPrimitive = function (o) {
